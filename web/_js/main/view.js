@@ -93,9 +93,11 @@ async function resetEntriesList() {
 	const entry = {
 		name: variationConfig.name,
 		links: {},
-		// id,
+		id: currentVariation,
 		...variationConfig.info
 	}
+
+	if (variationConfig?.code) entry.id += ` (${variationConfig.code})`
 	const element = createInfoBlock(entry)
 	entriesList.replaceChildren(element)
 
